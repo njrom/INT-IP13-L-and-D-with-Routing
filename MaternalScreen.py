@@ -35,14 +35,57 @@ def main():
     wait(1)
     type(Key.ENTER)
     wait(1)
-    click(Pattern("Maternal1stTrimesterScreen.png").targetOffset(-110, 0))
+    click(Pattern("Maternal1stTrimesterScreen.png").targetOffset(-108, 0))
+    ans = popAsk("Are the collection date ranges present ?")
+    if not ans:
+        sys.exit("Script Failed Dates are not contained")
+
+    click("Cancel.png")
+
+    click(Pattern("Maternal2ndTrimesterScreen.png").targetOffset(-108, 0))
+    ans = popAsk("Are the collection date ranges present ?")
+    if not ans:
+        sys.exit("Script Failed Dates are not contained")
+
+    type(KEY.PAGE_DOWN)
+    click("Cancel.png")
+
+    click(Pattern("MaternalAFPOnly.png").targetOffset(-65, 0))
+    ans = popAsk("Are the collection date ranges present?")
+    if not ans:
+        sys.exit("Script Failed Dates are not contained")
+
+    type(KEY.PAGE_DOWN)
+    click("Cancel.png")
 
 
 
 
 
 
+def test():
+    click(Pattern("Maternal1stTrimesterScreen.png").targetOffset(-108, 0))
+    wait(1)
+    ans = popAsk("Are the collection date ranges present ?")
+    if not ans:
+        sys.exit("Script Failed Dates are not contained")
 
+    click("Cancel.png")
 
+    click(Pattern("Maternal2ndTrimesterScreen.png").targetOffset(-108, 0))
+    wait(1)
+    ans = popAsk("Are the collection date ranges present ?")
+    if not ans:
+        sys.exit("Script Failed Dates are not contained")
 
-main()
+    click("Cancel.png")
+
+    click(Pattern("MaternalAFPOnly.png").targetOffset(-65, 0))
+    wait(1)
+    ans = popAsk("Are the collection date ranges present?")
+    if not ans:
+        sys.exit("Script Failed Dates are not contained")
+
+    click("Cancel.png")
+
+test()
