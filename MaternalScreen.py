@@ -1,14 +1,6 @@
 
 from lackey import *
-
-
-from Patients import Patients
 import sys
-
-
-USERNAME = "ADTADM"
-DEPARTMENT = "SMH Admitting"
-PATIENT_NUMBER = 1  # This is the number that dictates the patient name, if the patient exists already, raise it
 
 
 def main():
