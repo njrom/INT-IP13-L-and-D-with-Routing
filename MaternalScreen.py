@@ -1,5 +1,7 @@
 
 from lackey import *
+
+
 from Patients import Patients
 import sys
 
@@ -58,12 +60,7 @@ def main():
     type(KEY.PAGE_DOWN)
     click("Cancel.png")
 
-
-
-
-
-
-def test():
+    wait(1)
     click(Pattern("Maternal1stTrimesterScreen.png").targetOffset(-108, 0))
     wait(1)
     ans = popAsk("Are the collection date ranges present ?")
@@ -82,10 +79,27 @@ def test():
 
     click(Pattern("MaternalAFPOnly.png").targetOffset(-65, 0))
     wait(1)
+    type(Key.PAGE_DOWN)
     ans = popAsk("Are the collection date ranges present?")
     if not ans:
         sys.exit("Script Failed Dates are not contained")
 
-    click("Cancel.png")
+    click(Pattern("IVFQuestion.png").targetOffset(100,
+                                                  0))  # Tip: use Snaggit to find distance in points from center to where you need to click
 
-test()
+    if exists("EggSourceQuestion.png"):
+        popup("Script failed Egg Source Question appeared")
+        sys.exit("Script failed Egg Source Question appeared")
+
+    click(Pattern("IVFQuestionV2.png").targetOffset(54, 0))
+    wait(1)
+
+    if not exists("EggSourceQuestion.png"):
+        popup("Script failed Egg Source Question did not appear")
+        sys.exit("Script failed Egg Source Question did not apper")
+
+    type(Key.PAGE_UP)
+    click("Cancel.png")
+    
+
+main()
