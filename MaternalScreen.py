@@ -26,7 +26,7 @@ def main():
     wait(2)
     click("LastMenstrualPeriod.png")
     type("T-60"+Key.ENTER)
-    click("SelectEDDRadioButton.png")
+    click(Pattern("RadioButton.png").targetOffset(246, 0))
     click("ReCalculateDating.png")
     wait(2)
     click("Recalculate.png")
@@ -100,6 +100,12 @@ def main():
 
     type(Key.PAGE_UP)
     click("Cancel.png")
-    
+
+    click("Accept.png")
+    click("X.png")
+    popup("Script functioned properly.")
+
+
+
 
 main()
