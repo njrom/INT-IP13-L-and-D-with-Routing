@@ -37,19 +37,17 @@ def main():
     click("Recalculate.png")
     click("Close.png")
 
-
-def test():
     click("Results Console.png")
     wait(2)
-    type("M - 8"+Key.TAB)
-    type("N"+Key.TAB)
-    type("Krusch"+Key.TAB)
+    type("M - 8" + Key.TAB)
+    type("N" + Key.TAB)
+    type("Krusch" + Key.TAB)
     type("External Lab")
     click("Comment.png")
     type("Lab Address here")
     click("Accept2.png")
     click(Pattern("ABO.png").targetOffset(-25, 0))
-    type("O pos"+Key.ENTER)
+    type("O pos" + Key.ENTER)
 
     click(Pattern("Antibody.png").targetOffset(-30, 0))
     type("neg")
@@ -66,8 +64,85 @@ def test():
     type("95")
 
     click("Close.png")
-
     click("Save.png")
+
+    hover("Arrow.png")
+    wait(4)
+    click("Review PTA Meds.png")
+
+    click("Prior to Admission Med.png")
+    type(114929 + Key.ENTER)
+    click("Database Lookup.png")
+    type(Key.ENTER)
+
+    click("Today.png")
+    type("7 am")
+
+    click("Med List Status.png")
+    type("Up-To-Date.png" + Key.ENTER)
+    type(Key.PAGE_DOWN)
+    click("Mark as Reviewed.png")
+    click("Close.png")
+
+
+def test():
+    click("NST Procedure.png")
+    wait(2)
+    click("Fetal nonstress.png")
+
+    click(Pattern("Pre Procedure Diagnosis.png").targetOffset(250, 0))
+    type("Decreased fetal movements [483632]"+Key.TAB+Key.ENTER)
+    type(Key.TAB+ "047"+Key.TAB+Key.ENTER)
+    click(Pattern("Singleton.png").targetOffset(-30, 0))
+    click(Pattern("Now Start Time.png").targetOffset(140, 0))
+    click("No.png")
+    click("rare.png")
+    click("absent.png")
+    click(Pattern("FHR Baseline.png").targetOffset(200, 0))
+    type("123")
+    click(Pattern("Decelerations none.png").targetOffset(65, 0))
+    click(Pattern("Accelerations none.png").targetOffset(65, 0))
+    click("Acoustic.png")
+    click("Nonreactive.png")
+    click(Pattern("Now End Time.png").targetOffset(140, 0))
+    click("Paper.png")
+
+    type(Key.TAB + "Resident"+ Key.TAB)
+    type("Suggest Repeat NST in 24 hours"+Key.ENTER)
+    type(Key.TAB*2 + "T + 1 ")
+
+    click(Pattern("Date of Service.png").targetOffset(60, 0))
+    type("T"+Key.TAB)
+    type("N"+Key.TAB)
+    type("URMC OBSTETRICS, PHYSICIAN"+Key.TAB)
+
+    type(Key.F2)
+    type("Y" +Key.ENTER)
+    type(Key.F2)
+    type("Y" + Key.ENTER)
+    type(Key.F2)
+    type("Y" + Key.ENTER)
+    type(Key.F2)
+    type("Y" + Key.ENTER)
+    type(Key.F2)
+    type("Y" + Key.ENTER)
+    type(Key.F2)
+    type("Y" + Key.ENTER)
+    type(Key.F2)
+    type("Y" + Key.ENTER)
+
+    if not exists("Note Verification.png") :
+        popup("Script failed smart form text does not reflect the info entered")
+        sys.exit("Script failed smart form text does not reflect the info entered")
+
+    click("Sign.png")
+
+
+
+
+
+
+
 
 
     
