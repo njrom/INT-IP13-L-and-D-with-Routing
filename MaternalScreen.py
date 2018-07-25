@@ -26,23 +26,24 @@ def main():
     click("Close.png")
     wait(1)
     click("ManageOrders.png")
-    type("Maternal Screen"+Key.ENTER)
+    click("Place new orders.png")
+    type("Maternal Screen" + Key.ENTER)
     wait(1)
     type(Key.ENTER)
     wait(1)
 
     click(Pattern("Maternal1stTrimesterScreen.png").targetOffset(-108, 0))
     wait(1)
-    ans = popAsk("Are the collection date ranges present ?")
-    if not ans:
+    ans = exists("Order Collection Date Verification.png")
+    if ans:
         sys.exit("Script Failed Dates are not contained")
 
     click("Cancel.png")
 
     click(Pattern("Maternal2ndTrimesterScreen.png").targetOffset(-108, 0))
     wait(1)
-    ans = popAsk("Are the collection date ranges present ?")
-    if not ans:
+    ans = exists("Order Collection Date Verification.png")
+    if ans:
         sys.exit("Script Failed Dates are not contained")
 
     click("Cancel.png")
@@ -50,8 +51,8 @@ def main():
     click(Pattern("MaternalAFPOnly.png").targetOffset(-65, 0))
     wait(1)
     type(Key.PAGE_DOWN)
-    ans = popAsk("Are the collection date ranges present?")
-    if not ans:
+    ans = exists("Order Collection Date Verification.png")
+    if ans:
         sys.exit("Script Failed Dates are not contained")
 
     click(Pattern("IVFQuestion.png").targetOffset(100,
@@ -72,10 +73,11 @@ def main():
     click("Cancel.png")
 
     click("Accept.png")
-    click("DiscardChanges.png")
+    if exists("DiscardChanges.png"):
+        click("DiscardChanges.png")
+
     click("X.png")
     popup("Script functioned properly.")
-
 
 
 
