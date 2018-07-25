@@ -3,6 +3,7 @@ from lackey import *
 import sys
 
 
+
 def main():
     App.focus("URMC POC")
     click("TriageAdmit.png")
@@ -84,8 +85,6 @@ def main():
     click("Mark as Reviewed.png")
     click("Close.png")
 
-
-def test():
     click("NST Procedure.png")
     wait(2)
     click("Fetal nonstress.png")
@@ -138,17 +137,4 @@ def test():
     click("Sign.png")
 
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
-test()
+main()

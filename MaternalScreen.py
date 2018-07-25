@@ -6,7 +6,7 @@ import sys
 def main():
     App.focus("URMC POC")
     click("OB Triage.png")
-    wait(1)
+    wait(3)
     click("Allergies.png")
     wait(1)
     click("NoKnownAllergies.png")
